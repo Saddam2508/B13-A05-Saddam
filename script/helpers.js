@@ -9,6 +9,12 @@ const removeActive = () => {
   allBtn.forEach((btn) => btn.classList.remove("btn-primary"));
 };
 
+const statusBtnFun = () => {
+  const statusBtn = document.querySelectorAll(".count-right .fa-solid");
+  statusBtn.forEach((btn) =>
+    btn.classList.remove("text-green-500", "text-purple-500"),
+  );
+};
 // showOnly
 
 const showOnly = (id, countId) => {

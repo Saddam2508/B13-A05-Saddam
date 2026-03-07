@@ -2,11 +2,19 @@ document.getElementById("all-btn").addEventListener("click", (e) => {
   const clickBtn = e.target;
   if (e.target.classList.contains("btn")) {
     removeActive();
+    statusBtnFun();
     clickBtn.classList.add("btn-primary");
     allIssuesFetch();
     if (e.target.id === "open-button") {
+      statusBtnFun();
+      const statusBtn = document.getElementById("fa-1");
+      statusBtn.classList.add("text-green-500");
       openCloseCardMaker();
-    } else {
+      return;
+    } else if (e.target.id === "closed-button") {
+      statusBtnFun();
+      const statusBtn = document.getElementById("fa-2");
+      statusBtn.classList.add("text-purple-500");
       openCloseCardMaker();
     }
   }
