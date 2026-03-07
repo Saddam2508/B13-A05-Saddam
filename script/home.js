@@ -37,7 +37,7 @@ const allIssuesDisplay = (issues) => {
     allCard.innerHTML += `
 
 <div class="card-box ${issue.status} space-y-5 shadow-md p-4 ${statusClassFun(issue.status)}">
-          <div class="flex justify-between">
+          <div onclick = "loadWordDetail(${issue.id})" class="flex justify-between">
             ${statusImgFun(issue.status)}
             <button
               class="btn px-8 rounded-full ${priorityColor(issue.priority)}"
@@ -92,3 +92,43 @@ const searchDataFetch = async () => {
 };
 
 allIssuesFetch();
+
+const loadWordDetail = async (id) => {
+  console.log(id);
+  const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+  const res = await fetch(url);
+  const details = await res.json();
+  displayWordDetails(details.data);
+};
+
+const displayWordDetails = (word) => {
+  console.log(word);
+  const detailsBox = document.getElementById("details-container");
+  detailsBox.innerHTML = `
+  <div class="card-box ${word.status} space-y-5 shadow-md p-4 ${statusClassFun(word.status)}">
+          <div onclick = "loadWordDetail(${word.id})" class="flex justify-between">
+            ${statusImgFun(word.status)}
+            <button
+              class="btn px-8 rounded-full ${priorityColor(word.priority)}"
+            >
+              ${word.priority.toUpperCase()}
+            </button>
+          </div>
+          <h2 class="text-xl font-bold">
+            ${word.title}
+          </h2>
+          <p>
+             ${word.description.substring(0, 80)}...
+          </p>
+          <div>
+          ${levelArr(word.labels)}
+            
+          </div>
+          <hr class="text-gray-300" />
+          <p>${word.author}</p>
+          <p>${word.createdAt}</p>
+        </div>
+  
+  `;
+  document.getElementById("word_modal").showModal();
+};
