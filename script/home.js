@@ -61,8 +61,6 @@ const openCard = () => {
   const allChildren = document.querySelectorAll(".card-box");
   const openContainer = document.getElementById("open-card");
   const closedContainer = document.getElementById("closed-card");
-  openContainer.innerHTML = "";
-  closedContainer.innerHTML = "";
   allChildren.forEach((children) => {
     if (children.classList.contains("open")) {
       openContainer.appendChild(children.cloneNode(true));
