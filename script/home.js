@@ -1,3 +1,5 @@
+let totalCard = 0;
+
 document.getElementById("all-btn").addEventListener("click", (e) => {
   const clickBtn = e.target;
   if (e.target.classList.contains("btn")) {
@@ -20,7 +22,7 @@ const allIssuesDisplay = (issues) => {
   allCard.innerHTML = "";
 
   issues.forEach((issue) => {
-    console.log(issue);
+    // console.log(issue);
     allCard.innerHTML += `
 
 <div class="card-box space-y-5 shadow-md p-4 ${statusClassFun(issue.status)}">
@@ -50,3 +52,5 @@ const allIssuesDisplay = (issues) => {
 `;
   });
 };
+
+allIssuesFetch();

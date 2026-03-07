@@ -60,9 +60,15 @@
     <main class="w-10/12 mx-auto">
       <!-- All, Open, Closed button -->
       <section id="all-btn" class="mt-20 py-10 px-10 bg-white shadow-md">
-        <button class="btn px-13 btn-primary">All</button>
-        <button class="btn px-13 btn-base-100">Open</button>
-        <button class="btn px-13">Closed</button>
+        <button onclick="showOnly('all-card')" class="btn px-13 btn-primary">
+          All
+        </button>
+        <button onclick="showOnly('open-card')" class="btn px-13 btn-base-100">
+          Open
+        </button>
+        <button onclick="showOnly('closed-card')" class="btn px-13">
+          Closed
+        </button>
       </section>
 
       <!-- issue Count section -->

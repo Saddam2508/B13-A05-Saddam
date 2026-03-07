@@ -9,6 +9,18 @@ const removeActive = () => {
   allBtn.forEach((btn) => btn.classList.remove("btn-primary"));
 };
 
+// showOnly
+
+const showOnly = (id) => {
+  const allSection = document.querySelectorAll(
+    "#all-card, #open-card, #closed-card",
+  );
+  allSection.forEach((sec) => sec.classList.add("hidden"));
+
+  const selectedSection = document.getElementById(id);
+  selectedSection.classList.remove("hidden");
+};
+
 // label set
 
 const levelArr = (arr) => {
