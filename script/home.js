@@ -72,4 +72,15 @@ const openCard = () => {
   });
 };
 
+const searchDataFetch = async () => {
+  const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+  const res = await fetch(url);
+  const allData = await res.json();
+  const input = document.getElementById("search");
+  const searchArr = allData.data.filter((arr) =>
+    arr.title.toLowerCase().includes(input.value.toLowerCase()),
+  );
+  allIssuesDisplay(searchArr);
+};
+
 allIssuesFetch();
