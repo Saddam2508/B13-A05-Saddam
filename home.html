@@ -34,9 +34,71 @@
     <!-- css file connect -->
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-  <body>
-    <h1 class="">hi</h1>
+  <body class="bg-[#F8FAFC]">
+    <!-- header section -->
+    <header class="w-11/12 mx-auto">
+      <div class="navbar bg-base-100 shadow-sm">
+        <div class="flex justify-start items-center flex-1">
+          <img class="w-15" src="./assets/github-logo.png" alt="" />
+          <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+        </div>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered w-24 md:w-auto"
+          />
+          <div class="dropdown dropdown-end">
+            <button class="btn btn-primary">
+              <span>+</span>
+              <span>New Issue</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="w-10/12 mx-auto">
+      <!-- All, Open, Closed button -->
+      <section id="all-btn" class="mt-20 py-10 px-10 bg-white shadow-md">
+        <button class="btn px-13 btn-primary">All</button>
+        <button class="btn px-13 btn-base-100">Open</button>
+        <button class="btn px-13">Closed</button>
+      </section>
 
+      <!-- issue Count section -->
+      <section
+        id="issue-count"
+        class="mt-7 py-10 px-10 bg-white shadow-md flex justify-between items-center"
+      >
+        <div class="count-left flex items-center gap-2">
+          <img src="./assets/Aperture.png" alt="" />
+          <div>
+            <h2 class="text-xl font-bold">50 Issues</h2>
+            <p>Track and manage your project issues</p>
+          </div>
+        </div>
+        <div class="count-right">
+          <span><i class="fa-solid fa-circle"></i> Open</span>
+          <span><i class="fa-solid fa-circle"></i> Closed</span>
+        </div>
+      </section>
+      <!-- all card display -->
+      <section
+        id="all-card"
+        class="mt-7 py-10 px-10 shadow-md grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+      ></section>
+      <!-- open card display -->
+      <section
+        id="open-card"
+        class="mt-7 py-10 px-10 shadow-md hidden"
+      ></section>
+      <!-- closed card display -->
+      <section
+        id="closed-card"
+        class="mt-7 py-10 px-10 shadow-md hidden"
+      ></section>
+    </main>
+    <script src="./script/home.js"></script>
     <script src="./script/helpers.js"></script>
   </body>
 </html>
