@@ -1,11 +1,14 @@
-let totalCard = 0;
-
 document.getElementById("all-btn").addEventListener("click", (e) => {
   const clickBtn = e.target;
   if (e.target.classList.contains("btn")) {
     removeActive();
     clickBtn.classList.add("btn-primary");
     allIssuesFetch();
+    if (e.target.id === "open-button") {
+      openCloseCardMaker();
+    } else {
+      openCloseCardMaker();
+    }
   }
 });
 
@@ -25,7 +28,7 @@ const allIssuesDisplay = (issues) => {
     // console.log(issue);
     allCard.innerHTML += `
 
-<div class="card-box space-y-5 shadow-md p-4 ${statusClassFun(issue.status)}">
+<div class="card-box ${issue.status} space-y-5 shadow-md p-4 ${statusClassFun(issue.status)}">
           <div class="flex justify-between">
             ${statusImgFun(issue.status)}
             <button
@@ -41,7 +44,7 @@ const allIssuesDisplay = (issues) => {
              ${issue.description.substring(0, 80)}...
           </p>
           <div>
-          '${levelArr(issue.labels)}'
+          ${levelArr(issue.labels)}
             
           </div>
           <hr class="text-gray-300" />
@@ -50,6 +53,24 @@ const allIssuesDisplay = (issues) => {
         </div>
 
 `;
+  });
+  allCountCard();
+};
+
+const openCard = () => {
+  const allChildren = document.querySelectorAll(".card-box");
+  const openContainer = document.getElementById("open-card");
+  const closedContainer = document.getElementById("closed-card");
+  openContainer.innerHTML = "";
+  closedContainer.innerHTML = "";
+  allChildren.forEach((children) => {
+    if (children.classList.contains("open")) {
+      openContainer.appendChild(children.cloneNode(true));
+      openCountCard();
+    } else {
+      closedContainer.appendChild(children.cloneNode(true));
+      closedCountCard();
+    }
   });
 };
 

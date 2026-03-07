@@ -11,14 +11,21 @@ const removeActive = () => {
 
 // showOnly
 
-const showOnly = (id) => {
+const showOnly = (id, countId) => {
   const allSection = document.querySelectorAll(
     "#all-card, #open-card, #closed-card",
   );
+  const countDisplay = document.querySelectorAll(
+    "#all-count-display, #open-count-display, #closed-count-display",
+  );
   allSection.forEach((sec) => sec.classList.add("hidden"));
 
+  countDisplay.forEach((count) => count.classList.add("hidden"));
+
   const selectedSection = document.getElementById(id);
+  const selectedCountDisplay = document.getElementById(countId);
   selectedSection.classList.remove("hidden");
+  selectedCountDisplay.classList.remove("hidden");
 };
 
 // label set
@@ -124,4 +131,42 @@ const statusImgFun = (status) => {
     statusImage = `<img src="./assets/Closed-Status.png" alt="" />`;
   }
   return statusImage;
+};
+
+//All Count card
+
+const allCountCard = () => {
+  const allCardChildLength =
+    document.getElementById("all-card").children.length;
+  const allCardCount = document.getElementById("all-count");
+  allCardCount.innerText = allCardChildLength;
+};
+allCountCard();
+
+//Open Count card
+
+const openCountCard = () => {
+  const allCardChildLength =
+    document.getElementById("open-card").children.length;
+  const allCardCount = document.getElementById("open-count");
+  allCardCount.innerText = allCardChildLength;
+};
+
+//closed Count card
+
+const closedCountCard = () => {
+  const allCardChildLength =
+    document.getElementById("closed-card").children.length;
+  const allCardCount = document.getElementById("closed-count");
+  allCardCount.innerText = allCardChildLength;
+};
+
+// create open closed card
+
+const openCloseCardMaker = () => {
+  const openContainer = document.getElementById("open-card");
+  const closedContainer = document.getElementById("closed-card");
+  openContainer.innerHTML = "";
+  closedContainer.innerHTML = "";
+  openCard();
 };
