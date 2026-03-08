@@ -36,7 +36,8 @@
 ## 📤 What to submit
 
 - **GitHub Repository Link: https://github.com/Saddam2508/B13-A05-Saddam
-- **Live Site Link: https://saddam2508.github.io/B13-A05-Saddam/
+- **Live Site Link: https://saddam2508.github.io/B13-A05-Saddam
+- **Live Site Link: https://b13-a05-saddam.netlify.app
 
 ---
 
