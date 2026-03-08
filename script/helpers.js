@@ -199,10 +199,8 @@ const manageSpinner = (status) => {
   
   if (status === true) {
     document.getElementById("spinner").classList.remove("hidden");
-    document.getElementById("all-card").classList.add("hidden");
-    document.getElementById("open-card").classList.add("hidden");
-    document.getElementById("closed-card").classList.add("hidden");
-  } else if (btnId === "all-card") {
+    
+  } else if ( !btnId || btnId === "all-card") {
     document.getElementById("spinner").classList.add("hidden");
     document.getElementById("all-card").classList.remove("hidden");
   } else if (btnId === "open-card") {
