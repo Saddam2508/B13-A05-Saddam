@@ -36,8 +36,8 @@ const allIssuesDisplay = (issues) => {
     // console.log(issue);
     allCard.innerHTML += `
 
-<div class="card-box ${issue.status} space-y-5 shadow-md p-4 ${statusClassFun(issue.status)}">
-          <div onclick = "loadWordDetail(${issue.id})" class="flex justify-between">
+<div onclick = "loadWordDetail(${issue.id})" class="card-box ${issue.status} space-y-5 shadow-md p-4 ${statusClassFun(issue.status)}">
+          <div class="flex justify-between">
             ${statusImgFun(issue.status)}
             <button
               class="btn px-8 rounded-full ${priorityColor(issue.priority)}"
@@ -102,31 +102,45 @@ const loadWordDetail = async (id) => {
 };
 
 const displayWordDetails = (word) => {
-  console.log(word);
   const detailsBox = document.getElementById("details-container");
   detailsBox.innerHTML = `
-  <div class="card-box ${word.status} space-y-5 shadow-md p-4 ${statusClassFun(word.status)}">
+  <div class="card-box ${word.status} space-y-5 shadow-md p-4">
           <div onclick = "loadWordDetail(${word.id})" class="flex justify-between">
-            ${statusImgFun(word.status)}
-            <button
-              class="btn px-8 rounded-full ${priorityColor(word.priority)}"
-            >
-              ${word.priority.toUpperCase()}
-            </button>
+           
+          
           </div>
           <h2 class="text-xl font-bold">
             ${word.title}
           </h2>
+          <div class = "flex gap-6 items-center">
+          <button class = "btn rounded-full text-white ${word.status === "open" ? "bg-green-500": "bg-purple-500"}">${word.status}</button>
+          <ul class = "flex gap-7 list-disc items-center">
+          <li> ${word.status} by ${word.assignee ? word.assignee : "Unassigned"} </li>
+          <li> ${dateFormate(word.createdAt)} </li>
+          </ul>
+          </div>
           <p>
-             ${word.description.substring(0, 80)}...
+             ${word.description}
           </p>
           <div>
           ${levelArr(word.labels)}
             
           </div>
           <hr class="text-gray-300" />
-          <p>${word.author}</p>
-          <p>${word.createdAt}</p>
+         <div class = "flex justify-between items-center">
+         <div>
+         <p> assignee:</p>
+         <h2> ${word.assignee ? word.assignee : "Unassigned"} </h2>
+         </div>
+         <div class = "text-center">
+         <p> Priority:</p>
+       <button
+              class="btn px-4 rounded-full ${priorityColor(word.priority)}"
+            >
+              ${word.priority.toUpperCase()}
+         </button>
+         </div>
+         </div>
         </div>
   
   `;
