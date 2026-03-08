@@ -22,6 +22,7 @@ document.getElementById("all-btn").addEventListener("click", (e) => {
 
 // All Issues fetch
 const allIssuesFetch = async () => {
+  manageSpinner (true)
   const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
   const res = await fetch(url);
   const allIssues = await res.json();
@@ -63,6 +64,7 @@ const allIssuesDisplay = (issues) => {
 `;
   });
   allCountCard();
+   manageSpinner (false)
 };
 
 const openCard = () => {
@@ -76,6 +78,7 @@ const openCard = () => {
     } else {
       closedContainer.appendChild(children.cloneNode(true));
       closedCountCard();
+     
     }
   });
 };
@@ -91,7 +94,11 @@ const searchDataFetch = async () => {
   allIssuesDisplay(searchArr);
 };
 
-allIssuesFetch();
+// allIssuesFetch();
+document.addEventListener("DOMContentLoaded", () => {
+  allIssuesFetch(); 
+});
+
 
 const loadWordDetail = async (id) => {
   console.log(id);

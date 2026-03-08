@@ -1,3 +1,4 @@
+
 function getValue(id) {
   const input = document.getElementById(id);
   const value = input.value;
@@ -16,8 +17,9 @@ const statusBtnFun = () => {
   );
 };
 // showOnly
-
+let btnId = ""
 const showOnly = (id, countId) => {
+  btnId = id
   const allSection = document.querySelectorAll(
     "#all-card, #open-card, #closed-card",
   );
@@ -189,3 +191,27 @@ const formatted =
 
 return formatted;
 }
+
+
+// spin section
+
+const manageSpinner = (status) => {
+  
+  if (status === true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("all-card").classList.add("hidden");
+    document.getElementById("open-card").classList.add("hidden");
+    document.getElementById("closed-card").classList.add("hidden");
+  } else if (btnId === "all-card") {
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("all-card").classList.remove("hidden");
+  } else if (btnId === "open-card") {
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("all-card").classList.add("hidden");
+    document.getElementById("open-card").classList.remove("hidden");
+  } else{
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("all-card").classList.add("hidden");
+    document.getElementById("closed-card").classList.remove("hidden");
+  }
+};
