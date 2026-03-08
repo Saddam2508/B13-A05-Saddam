@@ -2,16 +2,6 @@
 
 ### 🚀 Challenges
 
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
     - 1️⃣ What is the difference between var, let, and const?
     Ans: 
 
@@ -45,8 +35,8 @@
 
 ## 📤 What to submit
 
-- **GitHub Repository Link:**
-- **Live Site Link:**
+- **GitHub Repository Link: https://github.com/Saddam2508/B13-A05-Saddam
+- **Live Site Link: https://saddam2508.github.io/B13-A05-Saddam/home.html
 
 ---
 

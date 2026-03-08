@@ -58,7 +58,7 @@ const allIssuesDisplay = (issues) => {
           </div>
           <hr class="text-gray-300" />
           <p>${issue.author}</p>
-          <p>${issue.createdAt}</p>
+          <p>${dateFormate (issue.createdAt)}</p>
         </div>
 
 `;
